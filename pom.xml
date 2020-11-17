@@ -39,16 +39,10 @@
                     <version>0.8.6</version>
                     <executions>
                         <execution>
-                            <id>default-prepare-agent</id>
-                            <goals>
-                                <goal>prepare-agent</goal>
-                            </goals>
-                        </execution>
-                        <execution>
-                            <id>check</id>
+                            <id>prepare-agent</id>
                             <phase>initialize</phase>
                             <goals>
-                                <goal>check</goal>
+                                <goal>prepare-agent</goal>
                             </goals>
                         </execution>
                         <execution>
@@ -57,13 +51,20 @@
                                 <goal>report</goal>
                             </goals>
                         </execution>
+                        <execution>
+                            <id>verify</id>
+                            <phase>verify</phase>
+                            <goals>
+                                <goal>check</goal>
+                            </goals>
+                        </execution>
                     </executions>
                     <configuration>
                         <rules>
                             <rule>
                                 <limits>
                                     <limit>
-                                        <counter>INSTRUCTION</counter>
+                                        <counter>LINE</counter>
                                         <value>COVEREDRATIO</value>
                                         <minimum>100%</minimum>
                                     </limit>
